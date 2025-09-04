@@ -1,14 +1,15 @@
 import './App.css'
 import React from 'react';
 import Button from './Button';
-const Table=({id,image,title,category, price,rating,children})=>{
-    
+
+
+const Table=({id,image,title,category, price,rating ,onViewDetails})=>{
+  
     return <>
- 
-<div className='flex p-10 flex-wrap '>
+<div className='flex p-10 flex-wrap'>
     
         
-           <div className='border-gray-400 border-2 w-56 p-4 m-2 rounded-lg shadow-lg h-80 ' >
+           <div className='border-gray-400 border-2 w-56 p-4  rounded-lg shadow-lg h-80   ' >
                 <div>
                        <div className='h-30 flex justify-center item-center'> 
                         <img src={image} alt={title} style={{width:"100px",height:"100px"}}
@@ -20,7 +21,12 @@ const Table=({id,image,title,category, price,rating,children})=>{
                 <p>Price: ${price}</p>
                 
                 <p>Rating: {rating.rate} ({rating.count} reviews)</p>
-                <div className='flex justify-center item-center py-2'> <Button style={{backgroundColor:"blue",color:"white",padding:"10px",borderRadius:"5px",border:"none",cursor:"pointer"}}>Add to cart</Button></div>
+                <div className='flex justify-center item-center py-2'>
+                     <Button 
+                     style={{backgroundColor:"blue",color:"white",padding:"10px",borderRadius:"5px",border:"none",cursor:"pointer"}} 
+                     onClick={()=>{onViewDetails(id)}}>
+                        Add to cart</Button>
+                        </div>
                 </div>
                
             </div>
